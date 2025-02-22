@@ -28,6 +28,7 @@ Long description of module's purpose
         'views/student.xml',
         'views/parents.xml',
         'views/teacher.xml',
+        'views/subjects.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
