@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <record id="action_school_class" model="ir.actions.act_window">
+        <field name="name">Class</field>
+        <field name="res_model">school.schoolclass</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+            id="school_school_class_menu"
+            name="Classes"
+            parent="school_menu_root"
+            action="action_school_class"
+            sequence="1"/>
+
+</odoo>
