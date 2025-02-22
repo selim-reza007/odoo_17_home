@@ -1,0 +1,6 @@
+candidate models list
+student
+parent
+teacher
+class
+subject
