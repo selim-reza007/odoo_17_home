@@ -8,7 +8,7 @@ class SchoolClass(models.Model):
     capacity = fields.Integer("Max students")
     class_teacher = fields.Many2one('school.teacher', string="Class Teacher")
     subject_line_ids = fields.One2many('class.subject.line', 'classroom_id', string="Subjects")
-
+    student_line_ids = fields.One2many('class.student.line','classroom_id','Students')
 
 class ClassSubjectLine(models.Model):
     _name = 'class.subject.line'
@@ -18,4 +18,13 @@ class ClassSubjectLine(models.Model):
     subject_id = fields.Many2one('school.subjects', string="Select subject")
     teacher_id = fields.Many2one('school.teacher', string="Select teacher")
     schedule = fields.Char(string="Class time")
+    classroom_id = fields.Many2one('school.schoolclass', string="Classroom")
+
+class classStudentLine(models.Model):
+    _name = 'class.student.line'
+    _description = 'Class student line'
+    _rec_name = 'student_id'
+
+    student_id = fields.Many2one('school.student', "Select student")
+    class_roll = fields.Char("Class roll")
     classroom_id = fields.Many2one('school.schoolclass', string="Classroom")
