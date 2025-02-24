@@ -4,5 +4,5 @@
     'author': 'Selim Reza',
     'website': 'www.example.com',
     'data': [],
-    'depends': [],
+    'depends': ['sale'],
 }
