@@ -1,5 +1,5 @@
 {
     'name' : 'custom_school',
-    'depends':[],
+    'depends':['school_system'],
     'data':[],
 }
