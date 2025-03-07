@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <record id="inherit_school_parent_form" model="ir.ui.view">
+        <field name="name">school.parent.form.inherit</field>
+        <field name="model">school.parents</field>
+        <field name="inherit_id" ref="school_system.view_school_parents_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='address']" position="after">
+                <field name="mobile"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

@@ -1,5 +1,7 @@
 {
     'name' : 'custom_school',
     'depends':['school_system'],
-    'data':[],
+    'data':[
+        'views/inherit_parent.xml',
+    ],
 }
