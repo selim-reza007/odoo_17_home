@@ -8,6 +8,19 @@
         <field name="inherit_id" ref="school_system.view_school_parents_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='address']" position="after">
+                <field name="ref"/>
+                <field name="mobile"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="inherit_school_parent_tree" model="ir.ui.view">
+        <field name="name">school.parent.tree.inherit</field>
+        <field name="model">school.parents</field>
+        <field name="inherit_id" ref="school_system.view_school_parents_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='address']" position="after">
+                <field name="ref"/>
                 <field name="mobile"/>
             </xpath>
         </field>
