@@ -3,6 +3,8 @@
     'application': False,
     'author': 'Selim Reza',
     'website': 'www.example.com',
-    'data': [],
-    'depends': ['sale'],
+    'data': [
+        'views/inherited_sale_order_form.xml',
+    ],
+    'depends': ['sale','sale_management'],
 }
