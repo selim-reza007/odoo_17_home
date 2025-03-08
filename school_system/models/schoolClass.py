@@ -15,6 +15,10 @@ class SchoolClass(models.Model):
         print("Method get triggered", vals)
         return super(SchoolClass, self).create(vals)
 
+    def write(self, vals):
+        print("Updated", vals)
+        return super().write(vals)
+
 class ClassSubjectLine(models.Model):
     _name = 'class.subject.line'
     _description = 'Class subject line'
