@@ -10,6 +10,11 @@ class SchoolClass(models.Model):
     subject_line_ids = fields.One2many('class.subject.line', 'classroom_id', string="Subjects")
     student_line_ids = fields.One2many('class.student.line','classroom_id','Students')
 
+    @api.model
+    def create(self, vals):
+        print("Method get triggered", vals)
+        return super(SchoolClass, self).create(vals)
+
 class ClassSubjectLine(models.Model):
     _name = 'class.subject.line'
     _description = 'Class subject line'
