@@ -1,3 +1,4 @@
+from datetime import datetime
 from odoo import models, fields, api
 
 class SchoolClass(models.Model):
@@ -18,6 +19,7 @@ class SchoolClass(models.Model):
     def write(self, vals):
         print("Updated", vals)
         return super().write(vals)
+
 
 class ClassSubjectLine(models.Model):
     _name = 'class.subject.line'
