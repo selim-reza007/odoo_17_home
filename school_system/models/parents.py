@@ -19,9 +19,9 @@ class Parents(models.Model):
 
 
    # depreciated after Odoo 17 but was worked fine before Odoo 17
-    # def name_get(self):
-    #     parents_list = []
-    #     for record in self:
-    #         name = record.occupation + ' ' + record.name
-    #         parents_list.append((record.id, name))
-    #     return parents_list
+   #  def name_get(self):
+   #      parents_list = []
+   #      for record in self:
+   #          name = record.occupation + ' ' + record.name
+   #          parents_list.append((record.id, name))
+   #      return parents_list

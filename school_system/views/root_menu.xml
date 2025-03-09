@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <record id="action_schoolclass_configuration" model="ir.actions.act_window">
+            <field name="name">Configuration</field>
+            <field name="res_model">school.schoolclass</field>
+        </record>
+
+    <menuitem id="configure_root_menu" name="configuration" sequence="2">
+        <menuitem id="configuration_sub_menu1" action="action_schoolclass_configuration" name="Wizard" sequence="1"/>
+        <menuitem id="configuration_sub_menu2" name="Settings" sequence="2">
+            <menuitem id="configuration_settings_profile" name="Profile" action="action_schoolclass_configuration" sequence="1"/>
+            <menuitem id="configuration_settings_location" name="Location" action="action_schoolclass_configuration" sequence="2"/>
+            <menuitem id="configuration_settings_post" name="Post" action="action_schoolclass_configuration" sequence="3"/>
+        </menuitem>
+    </menuitem>
+
+</odoo>

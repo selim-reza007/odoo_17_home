@@ -30,6 +30,7 @@ Long description of module's purpose
         'views/teacher.xml',
         'views/subjects.xml',
         'views/schoolclass.xml',
+        'views/root_menu.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
