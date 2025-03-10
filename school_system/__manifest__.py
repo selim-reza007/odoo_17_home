@@ -31,6 +31,7 @@ Long description of module's purpose
         'views/subjects.xml',
         'views/schoolclass.xml',
         'views/root_menu.xml',
+        'views/playground.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

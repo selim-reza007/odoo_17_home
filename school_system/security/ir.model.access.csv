@@ -6,3 +6,4 @@ school_system.access_school_subjects,access_school_subjects,school_system.model_
 school_system.access_school_schoolclass,access_school_schoolclass,school_system.model_school_schoolclass,base.group_user,1,1,1,1
 school_system.access_class_subject_line,access_class_subject_line,school_system.model_class_subject_line,base.group_user,1,1,1,1
 school_system.access_class_student_line,access_class_student_line,school_system.model_class_student_line,base.group_user,1,1,1,1
+school_system.access_playground,access_playground,school_system.model_playground,base.group_user,1,1,1,1

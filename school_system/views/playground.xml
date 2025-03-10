@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_school_playground_form" model="ir.ui.view">
+         <field name="name">School playground</field>
+         <field name="model">playground</field>
+         <field name="arch" type="xml">
+             <form string="Playground form">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="result"/>
+                        </group>
+                    </group>
+                </sheet>
+             </form>
+         </field>
+    </record>
+
+    <record id="school_playground_action" model="ir.actions.act_window">
+            <field name="name">Playground</field>
+            <field name="res_model">playground</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+        </record>
+
+    <menuitem id="school_playground_menu" action="school_playground_action" parent="school_menu_root" name="Playground" sequence="3"/>
+
+</odoo>
