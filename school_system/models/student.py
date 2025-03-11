@@ -22,3 +22,6 @@ class Student(models.Model):
                 record.age = date.today().year - record.dob.year
             else:
                 record.age = 1
+
+    def cancel_studentship(self):
+        return

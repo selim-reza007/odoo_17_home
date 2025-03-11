@@ -32,6 +32,7 @@
                         <field name="parents_id"/>
                         <field name="relation" invisible="parents_id == False"/>
                         <field name="id"/>
+                        <button name="cancel_studentship" string="Cancel studentship" type="object"/>
                     </group>
                 </group>
             </form>
