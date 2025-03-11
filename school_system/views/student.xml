@@ -31,6 +31,7 @@
                     <group>
                         <field name="parents_id"/>
                         <field name="relation" invisible="parents_id == False"/>
+                        <field name="id"/>
                     </group>
                 </group>
             </form>
