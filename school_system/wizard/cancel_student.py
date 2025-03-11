@@ -7,3 +7,9 @@ class CancelStudentWizard(models.TransientModel):
 
     student_id = fields.Many2one('school.student', "Select student")
     reason = fields.Char("Reason")
+
+    def action_cancel(self):
+        return
+
+    def discard_process(self):
+        return

@@ -24,4 +24,4 @@ class Student(models.Model):
                 record.age = 1
 
     def cancel_studentship(self):
-        return
+        print("Working....")

@@ -24,6 +24,7 @@ Long description of module's purpose
     # always loaded
     'data': [
         'security/ir.model.access.csv',
+        'wizard/cancel_student.xml',
         'views/menu.xml',
         'views/student.xml',
         'views/parents.xml',
