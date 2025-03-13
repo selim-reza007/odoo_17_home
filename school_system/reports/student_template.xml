@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <template id="report_student_pdf">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2>Student Report</h2>
+                        <p>Name: <t t-esc="o.name"/></p>
+                        <p>Date of Birth: <t t-esc="o.dob"/></p>
+                        <p>Age: <t t-esc="o.age"/></p>
+                        <p>Gender: <t t-esc="o.gender"/></p>
+                        <p>Parent: <t t-if="o.parents_id" t-esc="o.parents_id.name"/></p>
+                        <p t-if="not o.parents_id">Parent: Not specified</p>
+                        <p>Relation: <t t-esc="o.relation"/></p>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

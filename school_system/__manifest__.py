@@ -25,6 +25,8 @@ Long description of module's purpose
     'data': [
         'security/ir.model.access.csv',
         'wizard/cancel_student.xml',
+        'reports/report.xml',
+        'reports/student_template.xml',
         'views/menu.xml',
         'views/student.xml',
         'views/parents.xml',

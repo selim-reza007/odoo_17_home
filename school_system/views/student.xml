@@ -21,6 +21,12 @@
         <field name="model">school.student</field>
         <field name="arch" type="xml">
             <form string="Student form">
+                <header>
+                    <button string="Print Report"
+                            type="action"
+                            name="%(action_report_student)d"
+                            class="btn-primary"/>
+                </header>
                 <group>
                     <group>
                         <field name="name"/>
@@ -40,9 +46,9 @@
     </record>
 
     <record id="action_school_student" model="ir.actions.act_window">
-            <field name="name">Student</field>
-            <field name="res_model">school.student</field>
-            <field name="view_mode">tree,form</field>
+        <field name="name">Student</field>
+        <field name="res_model">school.student</field>
+        <field name="view_mode">tree,form</field>
     </record>
 
     <menuitem id="school_student_menu" parent="school_menu_root" action="action_school_student" name="Students" sequence="1"/>
