@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 
-<odoo>
-    <!-- Report Action -->
-    <record id="action_report_student" model="ir.actions.report">
-        <field name="name">Student Report</field>
-        <field name="model">school.student</field>
-        <field name="report_type">qweb-pdf</field>
-        <field name="report_name">school_system.report_student_pdf</field>
-        <field name="print_report_name">'Student_Report_%s' % (object.name)</field>
-    </record>
-
-    <!-- Add the report to the menu -->
-    <menuitem id="menu_student_report"
-              name="Print Student Report"
-              parent="school_system.school_menu_root"
-              action="action_report_student"/>
-</odoo>
+    <odoo>
+        <!-- Report Action -->
+        <record id="action_report_student" model="ir.actions.report">
+            <field name="name">Student Report</field>
+            <field name="model">school.student</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">school_system.report_student_pdf</field>
+            <field name="print_report_name">'Student_Report_%s' % (object.name)</field>
+            <field name="print_report_name">'Student_Report_%s' % (object.name or 'Unknown')</field>
+            <field name="binding_model_id" ref="model_school_student"/>
+            <field name="binding_type">report</field>
+        </record>
+        model_res_company
+    </odoo>
 
 </odoo>

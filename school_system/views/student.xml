@@ -21,12 +21,6 @@
         <field name="model">school.student</field>
         <field name="arch" type="xml">
             <form string="Student form">
-                <header>
-                    <button string="Print Report"
-                            type="action"
-                            name="%(action_report_student)d"
-                            class="btn-primary"/>
-                </header>
                 <group>
                     <group>
                         <field name="name"/>
