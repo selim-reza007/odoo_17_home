@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <template id="report_hash_integrity">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <h2>Parent's info</h2>
+                            <p>Name : <t t-esc="o.name"/></p>
+                            <p>Gender : <t t-esc="o.gender"/></p>
+                            <p>Address : <t t-esc="o.address"/></p>
+                            <p>Occupation : <t t-esc="o.occupation"/></p>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+</odoo>

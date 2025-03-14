@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <record id="report_parents_info" model="ir.actions.report">
+        <field name="name">Parent's info</field>
+        <field name="model">school.parents</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">school_system.report_parents_info_template</field>
+        <field name="report_file">school_system.report_parents_info_template</field>
+        <field name="binding_model_id" ref="model_school_parents"/>
+        <field name="binding_type">report</field>
+        <field name="print_report_name">'Parent_Report_%s' % (object.name or 'Unknown')</field>
+    </record>
+
+</odoo>
