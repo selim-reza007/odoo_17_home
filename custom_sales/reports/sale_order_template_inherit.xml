@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_saleorder_document_inherit" inherit_id="sale.report_saleorder_document">
+        <xpath expr="//div[@class='row mt-4 mb-2']" position="before">
+
+            <div class="col-auto col-3 mw-100 mb-2" name="informations_reference1">
+                    <strong>Inherited text</strong><br/>
+                </div>
+
+        </xpath>
+    </template>
+
+
+</odoo>
