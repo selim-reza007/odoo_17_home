@@ -27,6 +27,8 @@ Long description of module's purpose
         'wizard/cancel_student.xml',
         'reports/report.xml',
         'reports/student_template.xml',
+        'reports/parents_action.xml',
+        'reports/parents_template.xml',
         'views/menu.xml',
         'views/student.xml',
         'views/parents.xml',

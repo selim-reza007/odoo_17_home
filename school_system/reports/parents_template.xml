@@ -2,20 +2,34 @@
 
 <odoo>
 
-    <template id="report_hash_integrity">
-            <t t-call="web.html_container">
-                <t t-foreach="docs" t-as="o">
-                    <t t-call="web.external_layout">
-                        <div class="page">
-                            <h2>Parent's info</h2>
-                            <p>Name : <t t-esc="o.name"/></p>
-                            <p>Gender : <t t-esc="o.gender"/></p>
-                            <p>Address : <t t-esc="o.address"/></p>
-                            <p>Occupation : <t t-esc="o.occupation"/></p>
-                        </div>
-                    </t>
+    <template id="report_parents_info_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h1 class="text-center">Parent's Info</h1>
+                        <table class="table table-bordered table-striped">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Gender</th>
+                                    <th>Address</th>
+                                    <th>Occupation</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><t t-esc="o.name"/></td>
+                                    <td><t t-esc="o.gender"/></td>
+                                    <td><t t-esc="o.address"/></td>
+                                    <td><t t-esc="o.occupation"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </t>
             </t>
-        </template>
+        </t>
+    </template>
 
 </odoo>
