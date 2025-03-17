@@ -24,4 +24,4 @@ class Student(models.Model):
                 record.age = 1
 
     def cancel_studentship(self):
-        print("Working....")
+        return self.env.ref('school_system.action_cancel_student_wizard').read()[0]
