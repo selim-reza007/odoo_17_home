@@ -14,6 +14,7 @@ class CancelStudentWizard(models.TransientModel):
     def default_get(self, fields):
         res = super().default_get(fields)
         res['student_id'] = self.env.context.get('active_id')
+        res['cancel_date'] = date.today()
         return res
 
     def action_cancel(self):
