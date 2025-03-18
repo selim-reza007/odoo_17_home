@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from datetime import date
 from email.policy import default
-
 from odoo import models, fields, api
 from .constant import GENDER_SELECTION
 

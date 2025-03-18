@@ -1,5 +1,6 @@
-from datetime import date
-from odoo import api, fields, models
+import datetime
+from odoo.exceptions import ValidationError
+from odoo import api, fields, models,_
 
 class CancelStudentWizard(models.TransientModel):
     _name = 'school.student.cancel.wizard'
@@ -14,10 +15,12 @@ class CancelStudentWizard(models.TransientModel):
     def default_get(self, fields):
         res = super().default_get(fields)
         res['student_id'] = self.env.context.get('active_id')
-        res['cancel_date'] = date.today()
+        res['cancel_date'] = datetime.date.today()
         return res
 
     def action_cancel(self):
+        if self.student_id.admission_date == fields.Date.today():
+            raise ValidationError(_("Admission and cancel can't be same!"))
         return
 
     def discard_process(self):
