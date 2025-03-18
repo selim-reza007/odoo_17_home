@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 from datetime import date
+from email.policy import default
+
 from odoo import models, fields, api
 from .constant import GENDER_SELECTION
 
@@ -14,6 +16,7 @@ class Student(models.Model):
     gender = fields.Selection(GENDER_SELECTION, string="Select gender")
     parents_id = fields.Many2one('school.parents', string="Select parents")
     relation = fields.Char("Relation with parent")
+    admission_date = fields.Date("Admission date", default=fields.Date.today())
 
     @api.depends('dob')
     def _compute_age(self):

@@ -12,6 +12,7 @@
                 <field name="gender"/>
                 <field name="parents_id"/>
                 <field name="relation"/>
+                <field name="admission_date"/>
             </tree>
         </field>
     </record>
@@ -29,9 +30,9 @@
                         <field name="gender"/>
                     </group>
                     <group>
+                        <field name="admission_date"/>
                         <field name="parents_id"/>
                         <field name="relation" invisible="parents_id == False"/>
-                        <field name="id"/>
 <!--                        <button name="%(school_system.action_cancel_student_wizard)d" context="{'default_student_id': active_id}" string="Cancel studentship" type="action"/>-->
                         <button name="cancel_studentship" string="Cancel studentship" type="object"/>
                     </group>
