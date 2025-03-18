@@ -1,3 +1,4 @@
+from datetime import date
 from odoo import api, fields, models
 
 class CancelStudentWizard(models.TransientModel):
@@ -7,6 +8,7 @@ class CancelStudentWizard(models.TransientModel):
 
     student_id = fields.Many2one('school.student', "Select student")
     reason = fields.Char("Reason")
+    cancel_date = fields.Date("Cancel Date")
 
     @api.model
     def default_get(self, fields):
