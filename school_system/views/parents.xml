@@ -26,6 +26,7 @@
                         <field name="gender"/>
                         <field name="occupation"/>
                         <field name="address"/>
+                        <field name="address" invisible="context.get('hide_address')"/>
                     </group>
                 </sheet>
             </form>
@@ -46,6 +47,7 @@
             <field name="name">Parents</field>
             <field name="res_model">school.parents</field>
             <field name="view_mode">tree,form,search</field>
+            <field name="context">{'hide_address':1}</field>
     </record>
 
     <menuitem
