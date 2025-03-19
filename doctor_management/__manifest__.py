@@ -8,6 +8,7 @@
         'security/ir.model.access.csv',
         'views/menu.xml',
         'views/doctor.xml',
+        'views/days.xml',
     ],
     'installable': True,
     'application': True,
