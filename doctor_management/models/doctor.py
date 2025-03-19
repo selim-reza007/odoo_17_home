@@ -6,5 +6,5 @@ class Doctor(models.Model):
 
     name = fields.Char("Name")
     degree = fields.Char("Degree")
-    days = fields.Char("Days")
+    days = fields.Many2many('hospital.days', string="Select days")
     fee = fields.Integer("Fee")

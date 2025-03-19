@@ -13,7 +13,7 @@
                             <field name="degree"/>
                         </group>
                         <group>
-                            <field name="days"/>
+                            <field name="days" widget="many2many_tags" options="{'color_field': 'color'}"/>
                             <field name="fee"/>
                         </group>
                     </group>
@@ -29,7 +29,7 @@
             <tree string="Doctor">
                 <field name="name"/>
                 <field name="degree"/>
-                <field name="days"/>
+                <field name="days" widget="many2many_tags" options="{'color_field': 'color'}"/>
                 <field name="fee"/>
             </tree>
         </field>
