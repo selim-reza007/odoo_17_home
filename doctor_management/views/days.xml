@@ -10,6 +10,7 @@
                     <group>
                         <group>
                             <field name="name"/>
+                            <field name="color" widget="color_picker"/>
                         </group>
                     </group>
                 </sheet>
@@ -23,6 +24,7 @@
         <field name="arch" type="xml">
             <tree string="Days">
                 <field name="name"/>
+                <field name="color" widget="color_picker"/>
             </tree>
         </field>
     </record>

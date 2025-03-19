@@ -5,3 +5,4 @@ class Days(models.Model):
     _description = "Available days"
 
     name = fields.Char("Day name")
+    color = fields.Integer('Color Index')
