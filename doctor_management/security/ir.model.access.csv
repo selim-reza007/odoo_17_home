@@ -2,3 +2,4 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 doctor_management.access_doctor_doctor,access_doctor_doctor,doctor_management.model_doctor_doctor,base.group_user,1,1,1,1
 doctor_management.access_hospital_days,access_hospital_days,doctor_management.model_hospital_days,base.group_user,1,1,1,1
 doctor_management.access_hospital_patient,access_hospital_patient,doctor_management.model_hospital_patient,base.group_user,1,1,1,1
+doctor_management.access_hospital_appointment,access_hospital_appointment,doctor_management.model_hospital_appointment,base.group_user,1,1,1,1
