@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_hospital_doctor_form" model="ir.ui.view">
+        <field name="name">hospital.doctor.form</field>
+        <field name="model">doctor.doctor</field>
+        <field name="arch" type="xml">
+            <form string="Doctor">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="degree"/>
+                        </group>
+                        <group>
+                            <field name="days"/>
+                            <field name="fee"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_hospital_doctor_tree" model="ir.ui.view">
+        <field name="name">hospital.doctor.tree</field>
+        <field name="model">doctor.doctor</field>
+        <field name="arch" type="xml">
+            <tree string="Doctor">
+                <field name="name"/>
+                <field name="degree"/>
+                <field name="days"/>
+                <field name="fee"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_hospital_doctor_search" model="ir.ui.view">
+        <field name="name">hospital.doctor.search</field>
+        <field name="model">doctor.doctor</field>
+        <field name="arch" type="xml">
+            <search string="Doctor">
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_hospital_doctor" model="ir.actions.act_window">
+        <field name="name">Doctors</field>
+        <field name="res_model">doctor.doctor</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+            id="menu_hospital_doctor"
+            name="Doctors"
+            parent="menu_hospital_root"
+            action="action_hospital_doctor"
+            sequence="1"/>
+
+</odoo>
