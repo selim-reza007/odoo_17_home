@@ -11,7 +11,22 @@ class Appointment(models.Model):
     state = fields.Selection([
         ('bed', 'Bed'),
         ('visited', 'Visited'),
-        ('prescribed', 'Prescribed'),
+        ('prescribe', 'Prescribe'),
         ('released', 'Released'),
         ('cancelled', 'Cancelled'),
     ], string='Appointment Status')
+
+    def state_bed(self):
+        self.write({'state' : 'bed'})
+
+    def state_visited(self):
+        self.write({'state': 'visited'})
+
+    def state_prescribe(self):
+        self.write({'state': 'prescribe'})
+
+    def state_released(self):
+        self.write({'state': 'released'})
+
+    def state_cancelled(self):
+        self.write({'state': 'cancelled'})
