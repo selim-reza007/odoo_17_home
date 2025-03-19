@@ -9,6 +9,7 @@
         'views/menu.xml',
         'views/doctor.xml',
         'views/days.xml',
+        'views/patient.xml',
     ],
     'installable': True,
     'application': True,

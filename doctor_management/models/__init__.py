@@ -1,1 +1,1 @@
-from . import doctor, days
+from . import doctor, days, patient
