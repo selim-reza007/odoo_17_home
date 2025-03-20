@@ -8,8 +8,8 @@
             <form string="Cancel Appointment">
                 <group>
                     <group>
-                        <field name="patient_id"/>
                         <field name="ref"/>
+                        <field name="patient_id"/>
                     </group>
                     <group>
                         <field name="cancel_date"/>

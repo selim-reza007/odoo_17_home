@@ -37,3 +37,6 @@ class Appointment(models.Model):
     def create(self, vals):
         vals['ref'] = self.env['ir.sequence'].next_by_code('appointment.sequence.data')
         return super(Appointment, self).create(vals)
+
+    def cancel_appointment(self):
+        return self.env.ref('doctor_management.action_cancel_appointment_wizard').read()[0]

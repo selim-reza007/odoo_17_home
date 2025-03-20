@@ -26,6 +26,11 @@
                             <field name="priority" widget="priority"/>
                         </group>
                     </group>
+                    <notebook>
+                        <page name="apppointment-page1" string="Appointment">
+                            <button name="cancel_appointment" type="object" string="Cancel Appointment" class="btn btn-danger"/>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
