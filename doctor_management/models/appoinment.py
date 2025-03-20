@@ -3,6 +3,7 @@ from odoo import api, models, fields
 class Appointment(models.Model):
     _name = 'hospital.appointment'
     _description = "Hospital patient appointment"
+    _rec_name = "ref"
 
     ref = fields.Char("Reference")
     patient_id = fields.Many2one('hospital.patient', string="Patient")
