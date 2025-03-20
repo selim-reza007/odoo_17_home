@@ -4,6 +4,7 @@ class Appointment(models.Model):
     _name = 'hospital.appointment'
     _description = "Hospital patient appointment"
 
+    ref = fields.Char("Reference")
     patient_id = fields.Many2one('hospital.patient', string="Patient")
     room = fields.Char("Bed no.")
     appointment_date = fields.Date(string="Appointment date", default=fields.Date.today())
@@ -30,3 +31,8 @@ class Appointment(models.Model):
 
     def state_cancelled(self):
         self.write({'state': 'cancelled'})
+
+    @api.model
+    def create(self, vals):
+        vals['ref'] = self.env['ir.sequence'].next_by_code('appointment.sequence.data')
+        return super(Appointment, self).create(vals)

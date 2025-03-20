@@ -6,6 +6,7 @@ class InheritParents(models.Model):
     mobile = fields.Char("Mobile no.")
     ref = fields.Char("Reference")
 
+    @api.model
     def create(self, vals):
         vals['ref'] = self.env['ir.sequence'].next_by_code('school.parent.sequence')
         return super(InheritParents, self).create(vals)

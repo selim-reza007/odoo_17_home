@@ -7,9 +7,9 @@
         <field name="arch" type="xml">
             <form string="Appointments">
                 <header>
-                    <button name="state_bed" type="object" string="bed" invisible="state in ('bed')"/>
-                    <button name="state_visited" type="object" string="visit" invisible="state in ('visited','bed')"/>
-                    <button name="state_prescribe" type="object" string="prescribe" invisible="state in ('prescribe','bed')"/>
+                    <button name="state_bed" type="object" string="bed" invisible="state in ('bed','released')"/>
+                    <button name="state_visited" type="object" string="visit" invisible="state in ('visited','released')"/>
+                    <button name="state_prescribe" type="object" string="prescribe" invisible="state in ('prescribe','released')"/>
                     <button name="state_released" type="object" string="release" invisible="state in ('released','bed')"/>
                     <button name="state_cancelled" type="object" string="cancel" invisible="state in ('cancelled','released')"/>
                     <field name="state" widget="statusbar"/>
@@ -17,6 +17,7 @@
                 <sheet>
                     <group>
                         <group>
+                            <field name="ref"/>
                             <field name="patient_id"/>
                             <field name="room"/>
                         </group>
@@ -35,6 +36,7 @@
         <field name="model">hospital.appointment</field>
         <field name="arch" type="xml">
             <tree string="Appointments">
+                <field name="ref"/>
                 <field name="patient_id"/>
                 <field name="room"/>
                 <field name="appointment_date"/>
