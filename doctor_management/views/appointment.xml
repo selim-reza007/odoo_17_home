@@ -17,7 +17,7 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="ref"/>
+                            <field name="ref" readonly="1"/>
                             <field name="patient_id"/>
                             <field name="room"/>
                         </group>
@@ -28,7 +28,13 @@
                     </group>
                     <notebook>
                         <page name="apppointment-page1" string="Appointment">
-                            <button name="cancel_appointment" type="object" string="Cancel Appointment" class="btn btn-danger"/>
+                            <button
+                                    name="%(doctor_management.action_cancel_appointment_wizard)d"
+                                    type="action"
+                                    context="{'default_ref': active_id}"
+                                    string="Cancel Appointment"
+                                    class="btn btn-danger"/>
+<!--                            <button name="cancel_appointment" type="object" string="Cancel Appointment" class="btn btn-danger"/>-->
                         </page>
                     </notebook>
                 </sheet>
@@ -45,6 +51,7 @@
                 <field name="patient_id"/>
                 <field name="room"/>
                 <field name="appointment_date"/>
+                <field name="state" widget="badge"/>
                 <field name="priority" widget="priority"/>
             </tree>
         </field>
