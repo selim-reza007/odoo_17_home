@@ -1,1 +1,1 @@
-from . import doctor, days, patient, appoinment
+from . import doctor, days, patient, appoinment, tags

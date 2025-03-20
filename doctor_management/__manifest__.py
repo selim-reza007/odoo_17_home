@@ -13,6 +13,7 @@
         'views/days.xml',
         'views/patient.xml',
         'views/appointment.xml',
+        'views/tags.xml',
     ],
     'installable': True,
     'application': True,
