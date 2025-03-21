@@ -1,4 +1,5 @@
-from odoo import api, models, fields
+from odoo.exceptions import ValidationError
+from odoo import api, models, fields, _
 
 class Appointment(models.Model):
     _name = 'hospital.appointment'
@@ -32,6 +33,11 @@ class Appointment(models.Model):
 
     def state_cancelled(self):
         self.write({'state': 'cancelled'})
+
+    def unlink(self):
+        if self.state == "bed":
+            raise ValidationError(_("Appointment can't be deleted when state is in bed state!"))
+        return super(Appointment, self).unlink()
 
     @api.model
     def create(self, vals):
