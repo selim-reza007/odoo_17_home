@@ -1,7 +1,7 @@
 import datetime
-from odoo import api, models, fields
+from odoo import api, models, fields,_
 from odoo.odoo.tools.populate import compute
-
+from odoo.exceptions import ValidationError
 
 class Patient(models.Model):
     _name = 'hospital.patient'
@@ -11,6 +11,12 @@ class Patient(models.Model):
     age = fields.Integer(compute="_age_calculate",string="Age")
     mobile = fields.Char("Contact no.")
     dob = fields.Date("Date of birth")
+
+    @api.constrains('dob')
+    def _check_dob(self):
+        for rec in self:
+            if rec.dob and fields.Date.today() < rec.dob:
+                raise ValidationError(_("Invalid Date of birth"))
 
     @api.onchange('dob')
     def _age_calculate(self):
