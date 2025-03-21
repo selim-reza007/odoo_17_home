@@ -19,6 +19,7 @@ class Appointment(models.Model):
         ('cancelled', 'Cancelled'),
     ], string='Appointment Status')
 
+
     def state_bed(self):
         self.write({'state' : 'bed'})
 

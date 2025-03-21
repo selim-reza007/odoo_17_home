@@ -11,6 +11,13 @@ class Patient(models.Model):
     age = fields.Integer(compute="_age_calculate",string="Age")
     mobile = fields.Char("Contact no.")
     dob = fields.Date("Date of birth")
+    appointment_count = fields.Integer(compute="_compute_appointment",string="Appointment no.", store=True)
+    appointments_ids = fields.One2many('hospital.appointment','patient_id',string="appointment line")
+
+    @api.depends('appointments_ids')
+    def _compute_appointment(self):
+        for rec in self:
+            rec.appointment_count = self.env['hospital.appointment'].search_count([('patient_id', '=', rec.id)])
 
     @api.constrains('dob')
     def _check_dob(self):
