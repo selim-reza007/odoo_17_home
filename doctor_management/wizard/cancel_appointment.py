@@ -10,6 +10,7 @@ class CancelWizard(models.TransientModel):
     reason = fields.Char(string="Reason")
 
     def confirm_action(self):
+        self.ref.state = 'cancelled'
         return
 
     def cancel_action(self):

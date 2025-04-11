@@ -61,6 +61,8 @@
                 <field name="appointment_date"/>
                 <field name="state" widget="badge"/>
                 <field name="priority" widget="priority"/>
+                <button name="state_released" type="object" help="Move to release" class="fa fa-check btn-success" invisible="state in ('released','bed')"/>
+                <button name="%(doctor_management.action_cancel_appointment_wizard)d" type="action" invisible="state in ('released','cancelled')" context="{'default_ref': active_id}" class="fa fa-times btn-danger"/>
             </tree>
         </field>
     </record>
