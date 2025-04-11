@@ -14,6 +14,12 @@ class Patient(models.Model):
     appointment_count = fields.Integer(compute="_compute_appointment",string="Appointment no.", store=True)
     appointments_ids = fields.One2many('hospital.appointment','patient_id',string="appointment line")
 
+    @api.ondelete(at_uninstall=True)
+    def _check_appointment(self):
+        for rec in self:
+            if rec.appointments_ids:
+                raise ValidationError(_("This patient record can't be deleted, this got an appointment."))
+
     @api.depends('appointments_ids')
     def _compute_appointment(self):
         for rec in self:
