@@ -63,6 +63,10 @@
                 <field name="priority" widget="priority"/>
                 <button name="state_released" type="object" help="Move to release" class="fa fa-check btn-success" invisible="state in ('released','bed')"/>
                 <button name="%(doctor_management.action_cancel_appointment_wizard)d" type="action" invisible="state in ('released','cancelled')" context="{'default_ref': active_id}" class="fa fa-times btn-danger"/>
+                <groupby name="patient_id">
+                    <button name="btn_action" type="object" string="Click me"/>
+<!--                    <button name="btn_action" type="object" icon="fa-edit" title="Click me"/>-->
+                </groupby>
             </tree>
         </field>
     </record>

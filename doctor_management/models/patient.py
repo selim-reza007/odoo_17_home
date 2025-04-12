@@ -38,3 +38,6 @@ class Patient(models.Model):
                 rec.age = datetime.date.today().year - rec.dob.year
             else:
                 rec.age = 1
+
+    def btn_action(self):
+        print("Clicked button")
