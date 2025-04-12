@@ -67,6 +67,20 @@
         </field>
     </record>
 
+    <record id="view_hospital_appointment_search" model="ir.ui.view">
+        <field name="name">hospital.appointment.search</field>
+        <field name="model">hospital.appointment</field>
+        <field name="arch" type="xml">
+            <search string="Appointments">
+                <group expand="1" string="Group By">
+                    <filter string="Patient" name='Patient' context="{'group_by':'patient_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+
+
     <record id="action_hospital_appointment" model="ir.actions.act_window">
         <field name="name">Appointment</field>
         <field name="res_model">hospital.appointment</field>
