@@ -1,1 +1,1 @@
-from . import doctor, days, patient, appoinment, tags
+from . import doctor, days, patient, appoinment, tags,  res_config_settings, configure

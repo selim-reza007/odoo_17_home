@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="action_hospital_configure" model="ir.actions.act_window">
+        <field name="name">Configure</field>
+        <field name="res_model">hospital.configure</field>
+    </record>
+
+    <menuitem
+            id="menu_hospital_configure"
+            name="Configure"
+            parent="menu_hospital_root"
+            action="action_hospital_configure"
+            sequence="10"/>
+
+</odoo>
