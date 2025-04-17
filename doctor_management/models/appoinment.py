@@ -9,7 +9,7 @@ class Appointment(models.Model):
     ref = fields.Char("Reference")
     patient_id = fields.Many2one('hospital.patient', string="Patient")
     room = fields.Char("Bed no.")
-    appointment_date = fields.Date(string="Appointment date", default=fields.Date.today())
+    appointment_date = fields.Date(string="Appointment date")
     priority = fields.Selection([('0', 'Very Low'), ('1', 'Low'), ('2', 'Normal'), ('3', 'High')], string='Priority')
     state = fields.Selection([
         ('bed', 'Bed'),

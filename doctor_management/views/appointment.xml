@@ -27,7 +27,7 @@
                             <field name="room"/>
                         </group>
                         <group>
-                            <field name="appointment_date" readonly="1"/>
+                            <field name="appointment_date"/>
                             <field name="priority" widget="priority"/>
                         </group>
                     </group>
