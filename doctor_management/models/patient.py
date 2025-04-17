@@ -19,10 +19,10 @@ class Patient(models.Model):
     appointments_ids = fields.One2many('hospital.appointment','patient_id',string="appointment line")
 
     def _search_age(self, operator, value):
-        date_of_birth = fields.Date.today() - relativedelta(years=value)
-        start_of_year = date_of_birth.replace(day=1, month=1)
-        end_of_year = date_of_birth.replace(day=31, month=12)
-        return [('date_of_birth', '>=', start_of_year), ('date_of_birth', '<=', end_of_year)]
+        dob = fields.Date.today() - relativedelta(years=value)
+        start_of_year = dob.replace(day=1, month=1)
+        end_of_year = dob.replace(day=31, month=12)
+        return [('dob', '>=', start_of_year), ('dob', '<=', end_of_year)]
 
     @api.depends('age')
     def inverse_age_calculate(self):
