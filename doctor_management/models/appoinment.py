@@ -36,8 +36,9 @@ class Appointment(models.Model):
         self.write({'state': 'cancelled'})
 
     def unlink(self):
-        if self.state == "bed":
-            raise ValidationError(_("Appointment can't be deleted when state is in bed state!"))
+        for rec in self:
+            if rec.state == "bed":
+                raise ValidationError(_("Appointment can't be deleted when state is in bed state!"))
         return super(Appointment, self).unlink()
 
     @api.model
