@@ -8,6 +8,7 @@
             <form string="Operation" export_xlsx="0">
                 <group>
                     <field name="doctor_id"/>
+                    <field name="operation_name"/>
                 </group>
             </form>
         </field>
@@ -19,6 +20,7 @@
         <field name="arch" type="xml">
             <tree string="Operation" export_xlsx="0">
                 <field name="doctor_id"/>
+                <field name="operation_name"/>
             </tree>
         </field>
     </record>

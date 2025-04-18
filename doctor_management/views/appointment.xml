@@ -25,6 +25,7 @@
                         <group>
                             <field name="ref" readonly="1"/>
                             <field name="room"/>
+                            <field name="operation"/>
                         </group>
                         <group>
                             <field name="appointment_date"/>

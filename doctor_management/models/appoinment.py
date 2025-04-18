@@ -18,6 +18,7 @@ class Appointment(models.Model):
         ('released', 'Released'),
         ('cancelled', 'Cancelled'),
     ], string='Appointment Status')
+    operation = fields.Many2one("hospital.operation", string="Operation")
 
 
     def state_bed(self):

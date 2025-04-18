@@ -6,3 +6,9 @@ class Operation(models.Model):
     _log_access = False
 
     doctor_id = fields.Many2one("doctor.doctor", string="Doctor")
+    operation_name = fields.Char("Name")
+
+    @api.model
+    def name_create(self, name):
+        record = self.create({'operation_name': name})
+        return record.id, record.display_name
