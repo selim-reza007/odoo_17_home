@@ -15,13 +15,9 @@ class CancelWizard(models.TransientModel):
     def confirm_action(self):
         cancel_days = self.env['ir.config_parameter'].get_param('doctor_management.cancel_days')
         allowed_date = self.ref.appointment_date - relativedelta(days=int(cancel_days))
-
-        print("Cancel days: ", cancel_days)
-        print("allowed_date: ", allowed_date)
         if allowed_date < fields.date.today():
             raise ValidationError(_("This appointment can't be cancelled!"))
         self.ref.state = 'cancelled'
-        # return
 
     def cancel_action(self):
         return
