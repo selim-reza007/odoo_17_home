@@ -16,6 +16,7 @@
         'views/tags.xml',
         'views/configuration.xml',
         'views/res_config_settings_views.xml',
+        'views/operation.xml',
     ],
     'installable': True,
     'application': True,
