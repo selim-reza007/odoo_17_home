@@ -10,6 +10,7 @@ from dateutil.relativedelta import relativedelta
 class Patient(models.Model):
     _name = 'hospital.patient'
     _description = 'Hospital patient'
+    _order = "id desc"
 
     name = fields.Char("Name")
     age = fields.Integer(compute="_age_calculate", search="_search_age", inverse="inverse_age_calculate",string="Age")
