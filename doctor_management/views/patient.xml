@@ -29,7 +29,8 @@
         <field name="arch" type="xml">
             <tree string="Patient" export_xlsx="0">
                 <field name="name"/>
-                <field name="age"/>
+                <field name="age" avg="Average age"/>
+                <field name="appointment_count" sum="total Appointments"/>
                 <field name="mobile"/>
                 <field name="dob"/>
             </tree>
