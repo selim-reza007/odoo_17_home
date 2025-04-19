@@ -5,6 +5,7 @@ class Appointment(models.Model):
     _name = 'hospital.appointment'
     _description = "Hospital patient appointment"
     _rec_name = "ref"
+    _order = "id desc"
 
     ref = fields.Char("Reference")
     patient_id = fields.Many2one('hospital.patient', string="Patient")
