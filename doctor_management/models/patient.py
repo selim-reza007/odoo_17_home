@@ -20,6 +20,10 @@ class Patient(models.Model):
     appointment_count = fields.Integer(compute="_compute_appointment",string="Appointment no.", store=True)
     appointments_ids = fields.One2many('hospital.appointment','patient_id',string="appointment line")
     is_birthday_today = fields.Boolean(string="Is Birthday Today?", compute="_compute_is_birthday_today")
+    phone = fields.Char("Phone")
+    email = fields.Char("Email")
+    website = fields.Char("Website")
+
 
     @api.depends('dob')
     def _compute_is_birthday_today(self):
