@@ -6,6 +6,14 @@
         <field name="model">hospital.patient</field>
         <field name="arch" type="xml">
             <form string="Patient">
+
+                <div class="alert alert-info text-center o_form_header" role="alert" invisible="is_birthday_today == False">
+                    <a class="close" data-bs-dismiss="alert" href="#">x</a>
+                    <div>
+                        <strong>Happy Birthday!</strong>
+                    </div>
+                </div>
+
                 <sheet>
                     <group>
                         <group>
@@ -16,6 +24,7 @@
                         <group>
                             <field name="mobile"/>
                             <field name="dob"/>
+                            <field name="is_birthday_today" readonly="1"/>
                         </group>
                     </group>
                 </sheet>

@@ -1,4 +1,4 @@
-import datetime
+
 
 from dateutil.utils import today
 
@@ -6,6 +6,7 @@ from odoo import api, models, fields,_
 from odoo.odoo.tools.populate import compute
 from odoo.exceptions import ValidationError
 from dateutil.relativedelta import relativedelta
+from datetime import datetime
 
 class Patient(models.Model):
     _name = 'hospital.patient'
@@ -18,6 +19,18 @@ class Patient(models.Model):
     dob = fields.Date("Date of birth")
     appointment_count = fields.Integer(compute="_compute_appointment",string="Appointment no.", store=True)
     appointments_ids = fields.One2many('hospital.appointment','patient_id',string="appointment line")
+    is_birthday_today = fields.Boolean(string="Is Birthday Today?", compute="_compute_is_birthday_today")
+
+    @api.depends('dob')
+    def _compute_is_birthday_today(self):
+        today = fields.Date.context_today(self)  # Get today's date in the user's timezone
+        for record in self:
+            if record.dob:
+                # Compare only the month and day of the DOB with today's date
+                record.is_birthday_today = (record.dob.month == today.month) and (record.dob.day == today.day)
+            else:
+                record.is_birthday_today = False
+
 
     def _search_age(self, operator, value):
         dob = fields.Date.today() - relativedelta(years=value)
@@ -52,7 +65,7 @@ class Patient(models.Model):
     def _age_calculate(self):
         for rec in self:
             if rec.dob:
-                rec.age = datetime.date.today().year - rec.dob.year
+                rec.age = fields.Date.today().year - rec.dob.year
             else:
                 rec.age = 1
 
