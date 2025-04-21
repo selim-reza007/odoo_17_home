@@ -46,6 +46,10 @@
                         </group>
                     </group>
                     <notebook>
+                        <page name="statistics" string="Statistics">
+                            <field name="progress" widget="gauge"/>
+                            <field name="progress" widget="percentpie"/>
+                        </page>
                         <page name="apppointment-page1" string="Appointment">
                             <button
                                     name="%(doctor_management.action_cancel_appointment_wizard)d"
