@@ -71,16 +71,17 @@
                 </header>
                 <field name="ref"/>
                 <field name="patient_id"/>
-                <field name="room"/>
+                <field name="room" optional="hide"/>
                 <field name="appointment_date"/>
                 <field name="state" widget="badge"/>
-                <field name="priority" widget="priority"/>
+                <field name="priority" widget="priority" optional="hide"/>
                 <button name="state_released" type="object" help="Move to release" class="fa fa-check btn-success" invisible="state in ('released','bed')"/>
                 <button name="%(doctor_management.action_cancel_appointment_wizard)d" type="action" invisible="state in ('released','cancelled')" context="{'default_ref': active_id}" class="fa fa-times btn-danger"/>
                 <groupby name="patient_id">
                     <button name="btn_action" type="object" string="Click me"/>
                     <button name="edit" type="edit" icon="fa-edit" title="Edit patient"/>
                 </groupby>
+                <field name="progress" widget="progressbar"/>
             </tree>
         </field>
     </record>

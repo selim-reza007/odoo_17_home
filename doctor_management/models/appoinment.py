@@ -20,7 +20,21 @@ class Appointment(models.Model):
         ('cancelled', 'Cancelled'),
     ], string='Appointment Status')
     operation = fields.Many2one("hospital.operation", string="Operation")
+    progress = fields.Integer(string="Progress", compute="_compute_progress")
 
+    @api.depends('progress')
+    def _compute_progress(self):
+        for rec in self:
+            if rec.state == 'bed':
+                rec.progress = 25
+            elif rec.state == 'visited':
+                rec.progress = 50
+            elif rec.state == 'prescribe':
+                rec.progress = 75
+            elif rec.state == 'released':
+                rec.progress = 100
+            else:
+                rec.progress = 0
 
     def state_bed(self):
         self.write({'state' : 'bed'})
