@@ -17,6 +17,7 @@ class Patient(models.Model):
     age = fields.Integer(compute="_age_calculate", search="_search_age", inverse="inverse_age_calculate",string="Age")
     mobile = fields.Char("Contact no.")
     dob = fields.Date("Date of birth")
+    image = fields.Image("Image")
     appointment_count = fields.Integer(compute="_compute_appointment",string="Appointment no.", store=True)
     appointments_ids = fields.One2many('hospital.appointment','patient_id',string="appointment line")
     is_birthday_today = fields.Boolean(string="Is Birthday Today?", compute="_compute_is_birthday_today")

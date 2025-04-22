@@ -15,6 +15,7 @@
                 </div>
 
                 <sheet>
+                    <field name="image" widget="image" class="oe_avatar"/>
                     <group>
                         <group>
                             <field name="name"/>
