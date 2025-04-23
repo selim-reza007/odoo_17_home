@@ -63,7 +63,7 @@ class Patient(models.Model):
     @api.depends('appointments_ids')
     def _compute_appointment(self):
         appointment_group = self.env['hospital.appointment'].read_group(
-            domain=[('state','=','')],groupby=['patient_id'],fields=['patient_id'])
+            domain=[],groupby=['patient_id'],fields=['patient_id'])
         for appointment in appointment_group:
             patient_id = appointment.get('patient_id')[0]
             patient_rec = self.browse(patient_id)
@@ -86,3 +86,14 @@ class Patient(models.Model):
 
     def btn_action(self):
         print("Clicked button")
+
+    def action_view_appointments(self):
+        return {
+            'name': _('Appointments'),
+            'res_model': 'hospital.appointment',
+            'view_mode': 'list,form',
+            'context':{'default_patient_id':self.id},
+            'domain':[('patient_id','=',self.id)],
+            'target': 'current',
+            'type': 'ir.actions.act_window',
+        }

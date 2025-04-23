@@ -15,12 +15,16 @@
                 </div>
 
                 <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" type="object" name="action_view_appointments" icon="fa-star">
+                            <field string="Appointments" name="appointment_count" widget="statinfo"/>
+                        </button>
+                    </div>
                     <field name="image" widget="image" class="oe_avatar"/>
                     <group>
                         <group>
                             <field name="name"/>
                             <field name="age"/>
-                            <field name="appointment_count" readonly="1"/>
                         </group>
                         <group>
                             <field name="mobile"/>
