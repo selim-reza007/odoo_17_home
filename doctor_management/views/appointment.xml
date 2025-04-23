@@ -61,6 +61,26 @@
                         </group>
                     </group>
                     <notebook>
+                        <page name="medicines" string="Medicines">
+                            <field name="medicine_ids">
+                                <tree editable="bottom">
+                                    <field name="product"/>
+                                    <field name="qty"/>
+                                    <field name="unit_price"/>
+                                    <field name="sub_total"/>
+                                </tree>
+                                <form>
+                                    <group>
+                                        <group>
+                                            <field name="product"/>
+                                            <field name="qty"/>
+                                            <field name="unit_price"/>
+                                            <field name="sub_total"/>
+                                        </group>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
                         <page name="statistics" string="Statistics">
                             <field name="progress" widget="gauge"/>
                             <field name="progress" widget="percentpie"/>

@@ -22,6 +22,7 @@ class Appointment(models.Model):
     ], string='Appointment Status')
     operation = fields.Many2one("hospital.operation", string="Operation")
     progress = fields.Integer(string="Progress", compute="_compute_progress")
+    medicine_ids = fields.One2many("hospital.appointment.medicine.line","appointment_id",string="Medicine")
 
     @api.depends('progress')
     def _compute_progress(self):
@@ -65,3 +66,16 @@ class Appointment(models.Model):
 
     def cancel_appointment(self):
         return self.env.ref('doctor_management.action_cancel_appointment_wizard').read()[0]
+
+
+
+class AppointmentMedicineLine(models.Model):
+    _name = 'hospital.appointment.medicine.line'
+    _description = 'hospital appointment medicine line'
+    _rec_name = 'product'
+
+    appointment_id = fields.Many2one("hospital.appointment", string="Appointment")
+    product = fields.Many2one("product.product", string="Product")
+    unit_price = fields.Float("Unit Price")
+    sub_total = fields.Float("Sub total")
+    qty = fields.Integer("Quantity")
