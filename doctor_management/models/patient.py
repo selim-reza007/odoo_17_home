@@ -55,10 +55,20 @@ class Patient(models.Model):
             if rec.appointments_ids:
                 raise ValidationError(_("This patient record can't be deleted, this got an appointment."))
 
+    # @api.depends('appointments_ids')
+    # def _compute_appointment(self):
+    #     for rec in self:
+    #         rec.appointment_count = self.env['hospital.appointment'].search_count([('patient_id', '=', rec.id)])
+
     @api.depends('appointments_ids')
     def _compute_appointment(self):
-        for rec in self:
-            rec.appointment_count = self.env['hospital.appointment'].search_count([('patient_id', '=', rec.id)])
+        appointment_group = self.env['hospital.appointment'].read_group(
+            domain=[('state','=','')],groupby=['patient_id'],fields=['patient_id'])
+        for appointment in appointment_group:
+            patient_id = appointment.get('patient_id')[0]
+            patient_rec = self.browse(patient_id)
+            self -= patient_rec
+        self.appointment_count = 0
 
     @api.constrains('dob')
     def _check_dob(self):
