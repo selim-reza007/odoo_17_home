@@ -4,6 +4,7 @@ from odoo import api, models, fields, _
 class Appointment(models.Model):
     _name = 'hospital.appointment'
     _description = "Hospital patient appointment"
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _rec_name = "ref"
     _order = "id desc"
 
