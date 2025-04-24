@@ -23,6 +23,8 @@ class Appointment(models.Model):
     operation = fields.Many2one("hospital.operation", string="Operation")
     progress = fields.Integer(string="Progress", compute="_compute_progress")
     medicine_ids = fields.One2many("hospital.appointment.medicine.line","appointment_id",string="Medicine")
+    company_id = fields.Many2one('res.company', string='Company', default=lambda self: self.env.company)
+    currency_id = fields.Many2one('res.currency', related="company_id.currency_id")
 
     @api.depends('progress')
     def _compute_progress(self):
@@ -77,5 +79,7 @@ class AppointmentMedicineLine(models.Model):
     appointment_id = fields.Many2one("hospital.appointment", string="Appointment")
     product = fields.Many2one("product.product", string="Product")
     unit_price = fields.Float("Unit Price")
-    sub_total = fields.Float("Sub total")
     qty = fields.Integer("Quantity")
+    currency_id = fields.Many2one('res.currency', related="appointment_id.currency_id")
+    sub_total = fields.Monetary("Sub-total")
+
