@@ -9,10 +9,10 @@ class Appointment(models.Model):
     _order = "id desc"
 
     ref = fields.Char("Reference")
-    patient_id = fields.Many2one('hospital.patient', string="Patient")
-    room = fields.Char("Bed no.")
+    patient_id = fields.Many2one('hospital.patient', string="Patient", tracking=2)
+    room = fields.Char("Bed no.", tracking=1)
     duration = fields.Float('Average duration')
-    appointment_date = fields.Date(string="Appointment date")
+    appointment_date = fields.Date(string="Appointment date", tracking=True)
     priority = fields.Selection([('0', 'Very Low'), ('1', 'Low'), ('2', 'Normal'), ('3', 'High')], string='Priority')
     state = fields.Selection([
         ('bed', 'Bed'),
@@ -20,7 +20,7 @@ class Appointment(models.Model):
         ('prescribe', 'Prescribe'),
         ('released', 'Released'),
         ('cancelled', 'Cancelled'),
-    ], string='Appointment Status')
+    ], string='Appointment Status', tracking=True)
     operation = fields.Many2one("hospital.operation", string="Operation")
     progress = fields.Integer(string="Progress", compute="_compute_progress")
     medicine_ids = fields.One2many("hospital.appointment.medicine.line","appointment_id",string="Medicine")
