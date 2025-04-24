@@ -70,6 +70,12 @@ class Appointment(models.Model):
     def cancel_appointment(self):
         return self.env.ref('doctor_management.action_cancel_appointment_wizard').read()[0]
 
+    def redirect_button(self):
+        return {
+            'type': 'ir.actions.act_url',
+            'target': 'self',
+            'url': 'https://www.youtube.com',
+        }
 
 
 class AppointmentMedicineLine(models.Model):

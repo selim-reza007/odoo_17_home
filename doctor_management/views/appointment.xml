@@ -63,6 +63,12 @@
                             <field name="company_id" groups="base.group_multi_company"/>
                             <field name="currency_id" groups="base.group_multi_currency"/>
                         </group>
+                        <group>
+                            <button name="redirect_button"
+                                type="object"
+                                string="Redirect"
+                                class="oe_highlight"/>
+                        </group>
                     </group>
                     <notebook>
                         <page name="medicines" string="Medicines">
