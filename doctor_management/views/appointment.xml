@@ -59,15 +59,19 @@
                             <field name="priority" widget="priority"/>
                             <field name="duration"/>
                         </group>
+                        <group>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="currency_id" groups="base.group_multi_currency"/>
+                        </group>
                     </group>
                     <notebook>
                         <page name="medicines" string="Medicines">
                             <field name="medicine_ids">
                                 <tree editable="bottom">
                                     <field name="product"/>
-                                    <field name="unit_price"/>
+                                    <field name="unit_price" widget="monetary" options="{'currency_field': 'company_currency_id'}"/>
                                     <field name="qty"/>
-                                    <field name="currency_id" invisible="1"/>
+                                    <field name="company_currency_id" invisible="1"/>
                                     <field name="sub_total"/>
                                 </tree>
                                 <form>
