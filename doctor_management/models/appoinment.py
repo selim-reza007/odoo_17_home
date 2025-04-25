@@ -26,6 +26,12 @@ class Appointment(models.Model):
     medicine_ids = fields.One2many("hospital.appointment.medicine.line","appointment_id",string="Medicine")
     company_id = fields.Many2one('res.company', string='Company', default=lambda self: self.env.company)
     currency_id = fields.Many2one('res.currency', related="company_id.currency_id")
+    total_amount = fields.Monetary(string="Total Amount", compute="_compute_total_amount", currency_field="currency_id")
+
+    @api.depends('medicine_ids.sub_total')
+    def _compute_total_amount(self):
+        for rec in self:
+            rec.total_amount = sum(rec.medicine_ids.mapped('sub_total'))
 
     @api.depends('progress')
     def _compute_progress(self):
@@ -94,4 +100,3 @@ class AppointmentMedicineLine(models.Model):
     def _compute_sub_total(self):
         for rec in self:
             rec.sub_total = rec.qty * rec.unit_price
-

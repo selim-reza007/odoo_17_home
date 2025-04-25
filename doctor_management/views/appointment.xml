@@ -58,10 +58,11 @@
                             <field name="appointment_date"/>
                             <field name="priority" widget="priority"/>
                             <field name="duration"/>
+                            <field name="total_amount"/>
                         </group>
                         <group>
-                            <field name="company_id" groups="base.group_multi_company"/>
-                            <field name="currency_id" groups="base.group_multi_currency"/>
+                            <field name="company_id" groups="base.group_multi_company" invisible="1"/>
+                            <field name="currency_id" groups="base.group_multi_currency" invisible="1"/>
                         </group>
                         <group>
                             <button name="redirect_button"
