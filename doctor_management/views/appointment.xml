@@ -79,7 +79,7 @@
                                     <field name="unit_price" widget="monetary" options="{'currency_field': 'company_currency_id'}"/>
                                     <field name="qty"/>
                                     <field name="company_currency_id" invisible="1"/>
-                                    <field name="sub_total"/>
+                                    <field name="sub_total" sum="Total"/>
                                 </tree>
                                 <form>
                                     <group>
@@ -130,6 +130,8 @@
                 <field name="room" optional="hide"/>
                 <field name="appointment_date"/>
                 <field name="state" widget="badge"/>
+                <field name="total_amount" decoration-bf="1" decoration-it="1" decoration-success="1" sum="Total"/>
+                <field name="currency_id" invisible="1"/>
                 <field name="priority" widget="priority" optional="hide"/>
                 <button name="state_released" type="object" help="Move to release" class="fa fa-check btn-success" invisible="state in ('released','bed')"/>
                 <button name="%(doctor_management.action_cancel_appointment_wizard)d" type="action" invisible="state in ('released','cancelled')" context="{'default_ref': active_id}" class="fa fa-times btn-danger"/>
