@@ -11,3 +11,4 @@ class Doctor(models.Model):
     fee = fields.Integer("Fee")
 
     self.env['doctor.doctor'].create({'name':'Shahin Alom', 'degree':'MBA'})
+    self.env['doctor.doctor'].browse(5)
