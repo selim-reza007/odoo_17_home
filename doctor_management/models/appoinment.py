@@ -28,6 +28,17 @@ class Appointment(models.Model):
     currency_id = fields.Many2one('res.currency', related="company_id.currency_id")
     total_amount = fields.Monetary(string="Total Amount", compute="_compute_total_amount", currency_field="currency_id")
 
+    def sent_in_whatsapp(self):
+        if not self.patient_id.phone:
+            raise ValidationError(_("Missing phone number!"))
+        msg = "Hi!, %s" % self.patient_id.name
+        whatsapp_api = "https://api.whatsapp.com/send?phone=%s&text=%s" % (self.patient_id.phone, msg)
+        return {
+            'type': 'ir.actions.act_url',
+            'target' : 'new',
+            'url' : whatsapp_api,
+        }
+
     @api.depends('medicine_ids.sub_total')
     def _compute_total_amount(self):
         for rec in self:

@@ -39,6 +39,7 @@
                     <button name="state_prescribe" type="object" string="prescribe" invisible="state in ('prescribe','released')"/>
                     <button name="state_released" type="object" string="release" invisible="state in ('released','bed')"/>
                     <button name="state_cancelled" type="object" string="cancel" invisible="state in ('cancelled','released')"/>
+                    <button name="sent_in_whatsapp" type="object" string=" Message" class="fa fa-whatsapp"/>
                     <field name="state" widget="statusbar"/>
                 </header>
                 <sheet>
