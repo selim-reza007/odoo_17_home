@@ -1,4 +1,6 @@
 #Create method
+from itertools import count
+
 from odoo import fields
 
 class Doctor(models.Model):
@@ -12,3 +14,8 @@ class Doctor(models.Model):
 
     self.env['doctor.doctor'].create({'name':'Shahin Alom', 'degree':'MBA'})
     self.env['doctor.doctor'].browse(5)
+    self.env['doctor.doctor'].browse(5).write({'name':'Selim Khan', 'degree':'B.Sc'})
+    self.env['doctor.doctor'].browse(5).unlink()
+    self.env['doctor.doctor'].search([], limit=3, order='id desc')
+
+    self.env['doctor.doctor'].search_count([('degree','=','B.Sc')], count=True)
