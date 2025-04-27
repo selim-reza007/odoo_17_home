@@ -3,10 +3,8 @@
 from dateutil.utils import today
 
 from odoo import api, models, fields,_
-from odoo.odoo.tools.populate import compute
 from odoo.exceptions import ValidationError
 from dateutil.relativedelta import relativedelta
-from datetime import datetime
 
 class Patient(models.Model):
     _name = 'hospital.patient'
