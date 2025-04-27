@@ -19,3 +19,5 @@ class Doctor(models.Model):
     self.env['doctor.doctor'].search([], limit=3, order='id desc')
 
     self.env['doctor.doctor'].search_count([('degree','=','B.Sc')], count=True)
+    self.env['hospital.tag'].browse(99).get_metadata()[0].get('xmlid')
+    self.env['doctor.doctor'].fields_get(['name','degree'],['type','string'])
