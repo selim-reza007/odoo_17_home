@@ -10,6 +10,11 @@ class InheritSaleOrder(models.Model):
         values['country'] = self.country
         return values
 
+    class SaleOrderLine(models.Model):
+        _inherit = 'sale.order.line'
+
+        line_no = fields.Integer("Line no.")
+
 
 class InheritSaleOrderLine(models.Model):
     _inherit = "sale.order.option"
