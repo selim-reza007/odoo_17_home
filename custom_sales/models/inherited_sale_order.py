@@ -5,6 +5,11 @@ class InheritSaleOrder(models.Model):
 
     country = fields.Char("Country")
 
+    def _prepare_invoice(self):
+        values = super(InheritSaleOrder, self)._prepare_invoice()
+        values['country'] = self.country
+        return values
+
 
 class InheritSaleOrderLine(models.Model):
     _inherit = "sale.order.option"
