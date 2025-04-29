@@ -28,6 +28,18 @@ class Appointment(models.Model):
     currency_id = fields.Many2one('res.currency', related="company_id.currency_id")
     total_amount = fields.Monetary(string="Total Amount", compute="_compute_total_amount", currency_field="currency_id")
 
+    def action_notification(self):
+        return {
+            'type': 'ir.actions.client',
+            'tag': 'display_notification',
+            'params': {
+                'type': 'info',
+                'title': _('Sending invoices'),
+                'message': _('Some dummy message.'),
+                'next': {'type': 'ir.actions.act_window_close'},
+            },
+        }
+
     def sent_in_whatsapp(self):
         if not self.patient_id.phone:
             raise ValidationError(_("Missing phone number!"))
