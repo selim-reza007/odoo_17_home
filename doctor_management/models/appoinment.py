@@ -102,7 +102,7 @@ class AppointmentMedicineLine(models.Model):
 
     appointment_id = fields.Many2one("hospital.appointment", string="Appointment")
     product = fields.Many2one("product.product", string="Product")
-    unit_price = fields.Float("Unit Price", related="product.list_price")
+    unit_price = fields.Float("Unit Price", related="product.list_price", digits='Product Price')
     qty = fields.Integer("Quantity")
     company_currency_id = fields.Many2one('res.currency', related="appointment_id.currency_id")
     sub_total = fields.Monetary("Sub-total", compute="_compute_sub_total", currency_field="company_currency_id")
