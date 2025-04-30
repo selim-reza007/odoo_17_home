@@ -46,10 +46,13 @@ class Appointment(models.Model):
         }
 
     def sent_in_whatsapp(self):
-        if not self.patient_id.phone:
+        print("Phone : ", self.patient_id.mobile)
+        if not self.patient_id.mobile:
             raise ValidationError(_("Missing phone number!"))
         msg = "Hi!, %s" % self.patient_id.name
-        whatsapp_api = "https://api.whatsapp.com/send?phone=%s&text=%s" % (self.patient_id.phone, msg)
+        whatsapp_api = "https://api.whatsapp.com/send?phone=%s&text=%s" % (self.patient_id.mobile, msg)
+        self.message_post(body=msg, subject='Whatsapp message')
+
         return {
             'type': 'ir.actions.act_url',
             'target' : 'new',
