@@ -74,6 +74,11 @@
                                 type="object"
                                 string="Notification"
                                 class="oe_highlight"/>
+
+                            <button name="action_redirect_notification"
+                                type="object"
+                                string="Redirect Notification"
+                                class="oe_highlight"/>
                         </group>
                     </group>
                     <notebook>

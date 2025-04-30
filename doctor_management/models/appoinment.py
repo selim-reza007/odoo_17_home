@@ -28,6 +28,22 @@ class Appointment(models.Model):
     currency_id = fields.Many2one('res.currency', related="company_id.currency_id")
     total_amount = fields.Monetary(string="Total Amount", compute="_compute_total_amount", currency_field="currency_id")
 
+    def action_redirect_notification(self):
+        action = self.env.ref('doctor_management.action_hospital_patient')
+        return {
+            'type': 'ir.actions.client',
+            'tag': 'display_notification',
+            'params': {
+                'type': 'info',
+                'title': _('The following replenishment order has been generated'),
+                'message': '%s',
+                'links': [{
+                    'label': self.patient_id.name,
+                    'url': f'#action={action.id}&id={self.patient_id.id}&model=hospital.patient',
+                }],
+            },
+        }
+
     def action_notification(self):
         action = self.env.ref('doctor_management.action_hospital_patient')
         return {
