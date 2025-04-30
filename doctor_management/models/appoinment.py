@@ -41,6 +41,12 @@ class Appointment(models.Model):
                     'label': self.patient_id.name,
                     'url': f'#action={action.id}&id={self.patient_id.id}&model=hospital.patient',
                 }],
+                'next': {
+                    'type': 'ir.actions.act_window',
+                    'res_model': 'hospital.patient',
+                    'res_id': self.patient_id.id,
+                    'views': [[False, 'form']],
+                },
             },
         }
 
@@ -55,7 +61,7 @@ class Appointment(models.Model):
                 'message': '%s',
                 'links': [{
                     'label': self.patient_id.name,
-                    'url': f'#action={action.id}&id={self.patient_id.id}&model=hospital.patient',
+                    'url': f'#action={action.id}&id={self.patient_id.id}&model=hospital.patient&view_type=form'
                 }],
                 'next': {'type': 'ir.actions.act_window_close'},
             },
