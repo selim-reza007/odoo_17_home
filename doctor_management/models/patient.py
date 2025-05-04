@@ -25,8 +25,10 @@ class Patient(models.Model):
 
 
     def execute_sql(self):
-        query = """Hi"""
-        print(query)
+        query = """select name from hospital_patient where id = %s""" % self.id
+        self.env.cr.execute(query)
+        result = self.env.cr.dictfetchall()
+        print(result)
         return
 
     @api.depends('dob')
