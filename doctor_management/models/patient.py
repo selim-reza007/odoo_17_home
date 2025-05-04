@@ -24,6 +24,11 @@ class Patient(models.Model):
     website = fields.Char("Website")
 
 
+    def execute_sql(self):
+        query = """Hi"""
+        print(query)
+        return
+
     @api.depends('dob')
     def _compute_is_birthday_today(self):
         today = fields.Date.context_today(self)  # Get today's date in the user's timezone

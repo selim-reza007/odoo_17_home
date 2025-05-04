@@ -36,6 +36,12 @@
                             <field name="email" widget="email"/>
                             <field name="website" widget="url"/>
                         </group>
+                        <group>
+                            <button name="execute_sql"
+                                type="object"
+                                string="Execute SQL"
+                                class="oe_highlight"/>
+                        </group>
                     </group>
                 </sheet>
             </form>
