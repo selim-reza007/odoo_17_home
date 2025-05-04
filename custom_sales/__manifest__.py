@@ -7,6 +7,7 @@
         'reports/sale_order_template_inherit.xml',
         'views/inherited_sale_order_form.xml',
         'views/inherited_account_move_form.xml',
+        'views/inherited_res_partner_category_form.xml',
     ],
     'depends': ['sale','sale_management', 'account', 'mail'],
 }
