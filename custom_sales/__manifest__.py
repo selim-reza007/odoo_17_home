@@ -8,5 +8,5 @@
         'views/inherited_sale_order_form.xml',
         'views/inherited_account_move_form.xml',
     ],
-    'depends': ['sale','sale_management', 'account'],
+    'depends': ['sale','sale_management', 'account', 'mail'],
 }
