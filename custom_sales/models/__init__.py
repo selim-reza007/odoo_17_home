@@ -1,1 +1,1 @@
-from . import inherited_sale_order, inherited_account_move, inherited_res_partner_category
+from . import inherited_sale_order, inherited_account_move, inherited_res_partner_category, inherited_sale_report
